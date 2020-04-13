@@ -3,24 +3,24 @@ def estimator(data):
   return data
 
 
-def impact (reportedCases ):
+def get_impact (reportedCases ):
   currentlyInfected = reportedCases * 10
-  infectionsByRequestedTime = currentlyInfected * (2 ** int(timeToElapse / 3))
-  impacts = {
+  infectionsByRequestedTime = int (currentlyInfected * (2 ** (timeToElapse / 3)))
+  impact = {
     'currentlyInfected': currentlyInfected,
     'infectionsByReportedTime': infectionsByRequestedTime
   }
-  return impacts
+  return impact
 
 
-def severeImpact (reportedCases):
+def get_severeImpact (reportedCases):
   currentlyInfected = reportedCases * 50
   infectionsByRequestedTime = currentlyInfected * (2 ** int (timeToElapse/3))
-  severeImpacts = {
+  severeImpact = {
     'currentlyInfected': currentlyInfected,
     'infectionsByReportedTime': infectionsByRequestedTime
   }
-  return severeImpacts
+  return severeImpact
 
 def period_conversion (periodType, timeToElapse):
   periodType = periodType.lower()
@@ -29,6 +29,8 @@ def period_conversion (periodType, timeToElapse):
   elif periodType == "weeks":
     timeToElapse = timeToElapse * 7
   return timeToElapse
+
+
 
 
 
@@ -46,6 +48,17 @@ if __name__ == "__main__":
              'totalHospitalBeds': int ( input ("Total number of hospital beds: ")) }
     timeToElapse = period_conversion(data["periodType"], data["timeToElapse"])
 
-    print (estimator(data))
-    print (impact(data["reportedCases"]))
-    print (severeImpact(data["reportedCases"]))
+
+    def get_output():
+        output = {
+            'data': estimator(data),
+            'impact':  get_impact(data["reportedCases"]),
+            'severeImpact': get_severeImpact(data["reportedCases"])
+        }
+        return output
+
+
+
+
+
+    print ( get_output())
