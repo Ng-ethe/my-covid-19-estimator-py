@@ -35,15 +35,15 @@ def period_conversion (periodType, timeToElapse):
 
 if __name__ == "__main__":
     pass
-    data = { 'region': { 'name': "Africa",
-                         'avgAge': 19.7,
-                         'avgDailyIncomeInUSD': 5,
-                         'avgDailyIncomePopulation': 0.71},
-             'periodType': "days",
-             'timeToElapse': 58,
-             'reportedCases': 674,
-             'population': 66622705,
-             'totalHospitalBeds': 1380614 }
+    data = { 'region': { 'name': input("Region: "),
+                         'avgAge': float (input ("Average age: ")),
+                         'avgDailyIncomeInUSD': int(input("Average daily income in US $: ")),
+                         'avgDailyIncomePopulation': float ( input ("Average daily income of population: "))},
+             'periodType': input ("days\weeks\months: "),
+             'timeToElapse': int ( input ("Time to elapse: ")),
+             'reportedCases': int ( input ("Reported cases: ")),
+             'population': int ( input ("Population size: ")),
+             'totalHospitalBeds': int ( input ("Total number of hospital beds: ")) }
     timeToElapse = period_conversion(data["periodType"], data["timeToElapse"])
 
     print (estimator(data))
