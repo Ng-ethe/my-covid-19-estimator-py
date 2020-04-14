@@ -6,10 +6,10 @@ def get_impact(reportedCases, timeToElapse, totalHospitalBeds, avgDailyIncomePop
     currentlyInfected = reportedCases * 10
     infectionsByRequestedTime = (currentlyInfected * (2 ** int(timeToElapse / 3)))
     severeCasesByRequestedTime = int(infectionsByRequestedTime * 0.15)
-    hospitalBedsByRequestedTime = int(severeCasesByRequestedTime - (totalHospitalBeds * 0.35))
+    hospitalBedsByRequestedTime = int((totalHospitalBeds * 0.35) - severeCasesByRequestedTime )
     casesForICUByRequestedTime = int(infectionsByRequestedTime * 0.05)
     casesForVentilatorsByRequestedTime = int(infectionsByRequestedTime * 0.02)
-    dollarsInFlight = int((infectionsByRequestedTime * avgDailyIncomePopulation) * avgDailyIncomeInUSD * timeToElapse)
+    dollarsInFlight = round (((infectionsByRequestedTime * avgDailyIncomePopulation) * avgDailyIncomeInUSD * timeToElapse), 1)
     impact = {
         'currentlyInfected': currentlyInfected,
         'infectionsByReportedTime': infectionsByRequestedTime,
@@ -26,10 +26,10 @@ def get_severeImpact(reportedCases, timeToElapse, totalHospitalBeds, avgDailyInc
     currentlyInfected = reportedCases * 50
     infectionsByRequestedTime = currentlyInfected * (2 ** int(timeToElapse / 3))
     severeCasesByRequestedTime = int(infectionsByRequestedTime * 0.15)
-    hospitalBedsByRequestedTime = int(severeCasesByRequestedTime - (totalHospitalBeds * 0.35))
+    hospitalBedsByRequestedTime = int((totalHospitalBeds * 0.35) - severeCasesByRequestedTime )
     casesForICUByRequestedTime = int(infectionsByRequestedTime * 0.05)
     casesForVentilatorsByRequestedTime = int(infectionsByRequestedTime * 0.02)
-    dollarsInFlight = int((infectionsByRequestedTime * avgDailyIncomePopulation) * avgDailyIncomeInUSD * timeToElapse)
+    dollarsInFlight = round (((infectionsByRequestedTime * avgDailyIncomePopulation) * avgDailyIncomeInUSD * timeToElapse), 1)
 
     severeImpact = {
         'currentlyInfected': currentlyInfected,
