@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
     def get_output():
         output = {
-            'data': estimator(data),
+            'data': data,
             'impact': get_impact(
                                  data["reportedCases"],
                                  data["timeToElapse"],
