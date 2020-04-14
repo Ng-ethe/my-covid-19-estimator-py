@@ -1,5 +1,5 @@
-def estimator(data):
-    return data
+def estimator(data_input):
+    return data_input
 
 
 def get_impact(reportedCases, timeToElapse, totalHospitalBeds, avgDailyIncomePopulation, avgDailyIncomeInUSD):
@@ -56,7 +56,8 @@ def period_conversion(periodType, timeToElapse):
 
 if __name__ == "__main__":
     pass
-
+    data = {}
+    output = {}
     data = {'region': {'name': input("Region: "),
                        'avgAge': float(input("Average age: ")),
                        'avgDailyIncomeInUSD': int(input("Average daily income in US $: ")),
