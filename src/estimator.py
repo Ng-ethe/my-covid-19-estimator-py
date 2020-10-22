@@ -1,3 +1,7 @@
+# the program estimates the number of COVID-19 cases in the future 
+# using related data that has already been collected on the same
+
+
 def estimator(data_input):
     return data_input
 
